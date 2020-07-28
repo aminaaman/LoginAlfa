@@ -17,13 +17,13 @@ class Login extends Component {
 
         }
     }
-    login()
-    {
+    login(){
         console.warn(this.state);
         fetch("http://localhost:3000/login?q=" + this.state.name).then((data) =>{
             data.json().then((resp)=>{
                 console.warn("resp", resp)
                 if(resp.length>0){
+                    localStorage.setItem('login', JSON.stringify(resp))
                     console.log(this.props.history.push('/profile'));        
                 }
                 else{
