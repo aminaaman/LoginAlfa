@@ -18,20 +18,21 @@ class Login extends Component {
         }
     }
     login(){
-        console.warn(this.state);
-        fetch("http://localhost:3000/login?q=" + this.state.name).then((data) =>{
+        console.log(this.state);
+        fetch("http://localhost:3000/login?q=" + this.state.name && "http://localhost:3000/login?q=" + this.state.password).then((data) =>{
             data.json().then((resp)=>{
-                console.warn("resp", resp)
+                console.log("resp", resp)
                 if(resp.length>0){
                     localStorage.setItem('login', JSON.stringify(resp))
-                    console.warn(this.props.history.push('/profile'));        
+                    this.props.history.push('/profile');        
                 }
                 else{
-                    alert("Please check username and password")
+                    alert("Please check username and/or password")
                 }
             })
         })
     }
+
     render() {
         return (
             <div style={{display: "flex", justifyContent: "center"}}>
