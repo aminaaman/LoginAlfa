@@ -27,7 +27,8 @@ class Login extends Component {
                     this.props.history.push('/profile');        
                 }
                 else{
-                    alert("Please check username and/or password")
+                    console.log("Incorrect username or password");
+                    alert("Please check username and/or password");
                 }
             })
         })
