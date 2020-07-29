@@ -24,7 +24,7 @@ class Login extends Component {
                 console.warn("resp", resp)
                 if(resp.length>0){
                     localStorage.setItem('login', JSON.stringify(resp))
-                    console.log(this.props.history.push('/profile'));        
+                    console.warn(this.props.history.push('/profile'));        
                 }
                 else{
                     alert("Please check username and password")
@@ -36,7 +36,7 @@ class Login extends Component {
         return (
             <div style={{display: "flex", justifyContent: "center"}}>
                 <Form>
-                    <Heading size="m">Login here:</Heading>
+                    <Heading size="l">Login here:</Heading>
                     <Label>Username</Label><br/>
                     <FormField>
                         <input type="text" name="user" onChange={(event)=>this.setState({name:event.target.value})}/> <br/>
